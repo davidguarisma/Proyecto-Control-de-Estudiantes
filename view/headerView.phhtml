@@ -1,0 +1,13 @@
+<?php
+  require_once('headView.phhtml');
+?>
+
+    <header>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="banner" style="background:url('images/centro.jpg');padding-top: 33%;background-size: 100%;
+              background-position: 20% center;background-repeat: no-repeat;">
+            </div>
+          </div>
+        </div>
+    </header>

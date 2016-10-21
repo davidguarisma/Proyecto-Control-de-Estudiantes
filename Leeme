@@ -1,0 +1,19 @@
+**********************************************************************************
+* Bienvenido usuario,  mediante  este archivo le indicamos como realizar
+* la instala de la apliación para el control de cursos intensivos
+* en tu ordenador.
+*  1- Copia la carpeta del Sistema dentro del XAMPP, la ruta seria .
+* 			(xampp/htdocs/app).
+* 2- Ejecuta la apliación a traves de tu ordenador, el sistema
+*     creara la base de datos.
+* 3- para ingresar el usuario y contraseña de instalacion son
+*	nombre de usuario = usuario;
+*	clave= usuario.
+*
+*	App Versión 2.0.
+*
+*
+*
+*
+*
+**************************************************************************************
