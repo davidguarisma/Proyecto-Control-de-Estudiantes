@@ -1,0 +1,13 @@
+<footer>
+  <div class="container-fluid">
+           <div class='text-center' >
+                <b>  Desarrollado por los T.S.U del P.N.F Informatica</b>
+                <br/>
+                Copyright <img src="images/right.png" width="10" height="10" >&nbsp;<?echo date("Y");?>&nbsp;
+                <br/>
+             </div>
+    </div>
+    <?php require_once('view/JsView.phhtml'); ?>
+</footer>
+</body>
+</html>

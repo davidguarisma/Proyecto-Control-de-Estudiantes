@@ -1,0 +1,33 @@
+.table.dataTable {
+    border: 1px solid #ddd;
+}
+
+table.dataTable thead th {
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+table.dataTable tbody td {
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+.dataTables_info {
+    bottom: -25px;
+    left: 10px;
+    position: absolute;
+}
+
+table.dataTable.no-footer {
+    border-bottom: 1px solid #ddd;
+}
+
+.dataTables_length {
+    background: rgba(255, 255, 255, 0);
+    border-style: none;
+    margin-right: 118px;
+}
+
+.dataTables_filter {
+    right: 20px;
+}
