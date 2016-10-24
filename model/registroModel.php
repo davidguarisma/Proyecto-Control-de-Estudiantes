@@ -21,7 +21,7 @@ function registro_user($nombre, $apellido,$cedula,$email,$telefono,$password,$pn
     if ($resultado->num_rows == 0) {
          $query = sprintf("INSERT INTO usuarios VALUES
            (%d,%d,'%s','%s','%s','%s','%s','%s','%s','%s',%d)",
-           NULL,$cedula,$nombre,$apellido,$email,$telefono,md5($password),$pnf,$semestre,$trayecto,1 );
+           NULL,$cedula,$nombre,$apellido,$email,$telefono,$pnf,$semestre,$trayecto,md5($password),1 );
         if ( $mysqli->query($query)) {
             $id = $mysqli->insert_id;
             $_SESSION['id_register'] = $id;

@@ -10,7 +10,7 @@ function login_user($usuario,$password ){
 
     $mensaje = array();
 
-      $consulta = 'SELECT id_user,cedula,correo, clave FROM usuarios WHERE
+      $consulta = 'SELECT id_user,cedula,correo, clave,semestre_user FROM usuarios WHERE
         cedula="'.$usuario.'" AND clave ="'.md5($password).'"  OR correo="'.$usuario.'" AND clave ="'.md5($password).'" LIMIT 1';
       $resultado = $mysqli->query($consulta);
       $row = $resultado->fetch_array();
@@ -22,6 +22,7 @@ function login_user($usuario,$password ){
         $_SESSION['user_cedula'] = $row['cedula'];
         $_SESSION['user_correo'] = $row['correo'];
         $_SESSION['user_clave'] = $row['clave'];
+        $_SESSION['semestre_user'] = $row['semestre_user'];
 
        $mensaje =  2;
       }
