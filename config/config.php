@@ -4,7 +4,7 @@
       session_start();
       $_POST = array();
     }
-    $mysqli = new mysqli("localhost", "root", "root");
+    $mysqli = new mysqli("localhost", "root", "admin");
     if(!$mysqli->connect_error){
         $mysqli->query('CREATE DATABASE IF NOT EXISTS iuteb');
         $mysqli->select_db("iuteb");
@@ -51,15 +51,4 @@
  function string_ucfirst($string){
    return  ucfirst($string);
  }
-
- // NIVEL DE USUARIO
- // Administrador = 0;
- // Usuarios = 1;
-// PNF
-// 1 = 	PNF en Electricidad
-// 2 = 	PNF en Ingeniería de Mantenimiento
-// 3 = PNF en Mecánica
-// 4 = PNF en Informática
-// 5 = 	PNF en Geociencia
-// 6 = PNF en Sistemas de Calidad y Ambiente
  ?>

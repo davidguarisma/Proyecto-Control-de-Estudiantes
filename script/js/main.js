@@ -35,6 +35,7 @@ $(function() {
             }
         },
         submitHandler: function() {
+
             $('#floatingBarsG,.msj').css('display', 'block');
             $.ajax({
                 type: "POST",
@@ -42,17 +43,17 @@ $(function() {
                 data: $('.login').serialize(),
                 success: function(data) {
                     if (data == 1) {
+                      clearInpust();
                         setTimeout(function() {
-                            clearInpust();
                             swal({
                                 confirmButtonText: 'OK',
                                 title: 'El usuario no esta registrado',
                                 type: 'info'
                             })
                             $('#floatingBarsG,.msj').show(0).delay(1000).hide(0);
-                        }, 1000);
+                        }, 100);
                     } else if (data == 2) {
-                        clearInpust();
+                      clearInpust();
                         $(location).attr('href', '../app/?action=dashboard');
                     }
                 },
@@ -60,7 +61,7 @@ $(function() {
                     console.log(data);
                 }
             });
-            $('#floatingBarsG,.msj').show(0).delay(5000).hide(0);
+            $('#floatingBarsG,.msj').show(0).delay(100).hide(0);
         }
     });
     validator = $(".form_registro").validate({

@@ -26,7 +26,7 @@ function get_materias_alumnos(){
           case apertura WHEN 0 THEN  "Cerrada"
               WHEN 1 THEN  "Activa"
              END AS apertura
-            FROM materias m , semestre s, usuarios u WHERE m.apertura=1 AND  s.user_id = u.id_user';
+            FROM materias m , semestre s, usuarios u WHERE m.apertura=1 ';
   $resultado = $mysqli->query($consulta);
 
   $data = array();
@@ -34,7 +34,6 @@ function get_materias_alumnos(){
   $data[] =$row;
   }
   return $data;
-
 }
 
  ?>

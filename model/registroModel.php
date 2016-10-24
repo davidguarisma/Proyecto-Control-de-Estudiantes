@@ -20,14 +20,10 @@ function registro_user($nombre, $apellido,$cedula,$email,$telefono,$password,$pn
 
     if ($resultado->num_rows == 0) {
          $query = sprintf("INSERT INTO usuarios VALUES
-           (%d,%d,'%s','%s','%s','%s','%s',%d)",
-           NULL,$cedula,$nombre,$apellido,$email,$telefono,md5($password),1 );
+           (%d,%d,'%s','%s','%s','%s','%s','%s','%s','%s',%d)",
+           NULL,$cedula,$nombre,$apellido,$email,$telefono,md5($password),$pnf,$semestre,$trayecto,1 );
         if ( $mysqli->query($query)) {
-
             $id = $mysqli->insert_id;
-             $consulta1 = 'INSERT INTO semestre VALUES (NULL,'.$pnf.', '.$semestre.', '.$trayecto.')';
-             $mysqli->query($consulta1);
-
             $_SESSION['id_register'] = $id;
             $_SESSION['user_cedula'] = $cedula;
             $_SESSION['user_correo'] = $email;

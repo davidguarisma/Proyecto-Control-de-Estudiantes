@@ -97,11 +97,11 @@
                     <label for="clave" class="control-label">Tipo usuario:</label>
                     <div class="input-group">
                         <select class="form-control" id="tipo_usuario" name="tipo_usuario">
-                                    <option value=""> --Selecciona-- </option>
-                                    <option value="3">Remover permisos</option>
-                                    <option value="2">Administrador</option>
-                                    <option value="1">Estudiante</option>
-                                </select>
+                            <option value=""> --Selecciona-- </option>
+                            <option value="3">Remover permisos</option>
+                            <option value="2">Administrador</option>
+                            <option value="1">Estudiante</option>
+                        </select>
                         <span class="input-group-addon"><i class="fa fa-user-secret fa-lg" aria-hidden="true"></i></span>
                     </div>
 
@@ -163,9 +163,9 @@
                     <label for="clave" class="control-label">Tipo usuario:</label>
                     <div class="input-group">
                         <select class="form-control" id="tipo_usuario" name="tipo_usuario">
-                                    <option value=""> --Selecciona-- </option>
-                                    <option value="2">Administrador</option>
-                                    <option value="1">Estudiante</option>
+                            <option value=""> --Selecciona-- </option>
+                            <option value="2">Administrador</option>
+                            <option value="1">Estudiante</option>
                         </select>
                         <span class="input-group-addon"><i class="fa fa-user-secret fa-lg" aria-hidden="true"></i></span>
                     </div>
@@ -310,37 +310,31 @@
                 url: "controller/Post_set_user.php",
                 data: $('#form_new_user').serialize(),
                 success: function(data) {
-                  if (data == 1) {
-                      setTimeout(function() {
-                          clearInpust();
-                          swal({
-                              confirmButtonText: 'OK',
-                              title: 'Registro exitoso!',
-                              type: 'success'
-                          }).then(function(result) {
-                                $(".container-page").load('../app/view/usuarios.php');
-                              })
-                      }, 1000);
-                      $("#new_user").modal('hide');
-                  } else if (data == 2) {
-                      setTimeout(function() {
-                          clearInpust();
-                          swal({
-                              confirmButtonText: 'OK',
-                              title: 'Ocurrio un error,con el servidor',
-                              type: 'error'
-                          })
-                      }, 1000);
-                  } else if (data == 3) {
-                      setTimeout(function() {
-                          clearInpust();
-                          swal({
-                              confirmButtonText: 'OK',
-                              title: 'Este usuario esta registrado',
-                              type: 'info'
-                          })
-                      }, 1000);
-                  }
+                    if (data == 1) {
+                        clearInpust();
+                        $("#new_user").modal('hide');
+                        swal({
+                            confirmButtonText: 'OK',
+                            title: 'Registro exitoso!',
+                            type: 'success'
+                        }).then(function(result) {
+                            $(".container-page").load('../app/view/usuarios.php');
+                        })
+                    } else if (data == 2) {
+                        clearInpust();
+                        swal({
+                            confirmButtonText: 'OK',
+                            title: 'Ocurrio un error,con el servidor',
+                            type: 'error'
+                        })
+                    } else if (data == 3) {
+                        clearInpust();
+                        swal({
+                            confirmButtonText: 'OK',
+                            title: 'Este usuario esta registrado',
+                            type: 'info'
+                        })
+                    }
                 },
                 error: function(data) {
                     console.log(data);
@@ -404,24 +398,20 @@
                 data: $('#form_edit_user').serialize(),
                 success: function(data) {
                     if (data == 1) {
-                        setTimeout(function() {
-                            swal({
-                                confirmButtonText: 'OK',
-                                title: 'Datos actualizados!',
-                                type: 'success'
-                            }).then(function() {
-                                $(".container-page").load('../app/view/usuarios.php');
-                            })
-                        }, 1000);
                         $("#myModal").modal('hide');
+                        swal({
+                            confirmButtonText: 'OK',
+                            title: 'Datos actualizados!',
+                            type: 'success'
+                        }).then(function() {
+                            $(".container-page").load('../app/view/usuarios.php');
+                        })
                     } else if (data == 2) {
-                        setTimeout(function() {
-                            swal({
-                                confirmButtonText: 'OK',
-                                title: 'Ocurrio un error,con el servidor',
-                                type: 'error'
-                            })
-                        }, 1000);
+                        swal({
+                            confirmButtonText: 'OK',
+                            title: 'Ocurrio un error,con el servidor',
+                            type: 'error'
+                        })
                     }
                 },
                 error: function(data) {
@@ -443,57 +433,54 @@
             confirmButtonText: 'Aceptar!',
             cancelButtonText: 'Cancelar'
         }).then(function() {
-              $.ajax({
-                  type: "POST",
-                  url: "controller/delete_userController.php",
-                  data: {
+            $.ajax({
+                type: "POST",
+                url: "controller/delete_userController.php",
+                data: {
                     'id': id
-                  },
-                  success: function(data) {
+                },
+                success: function(data) {
                     if (data == 1) {
-                      setTimeout(function() {
                         swal({
-                          confirmButtonText: 'OK',
-                          title: 'Registro eliminado!',
-                          type: 'success'
+                            confirmButtonText: 'OK',
+                            title: 'Registro eliminado!',
+                            type: 'success'
                         }).then(function() {
                             $(".container-page").load('../app/view/usuarios.php');
                         })
-                      }, 1000);
                     } else if (data == 2) {
-                      setTimeout(function() {
                         swal({
-                          confirmButtonText: 'OK',
-                          title: 'Ocurrio un error,con el servidor',
-                          type: 'error'
+                            confirmButtonText: 'OK',
+                            title: 'Ocurrio un error,con el servidor',
+                            type: 'error'
                         })
-                      }, 1000);
                     }
-                  },
-                  error: function(data) {
+                },
+                error: function(data) {
                     console.log(data);
-                  }
-                });
-            }, function(dismiss) {
-        })
+                }
+            });
+        }, function(dismiss) {})
     });
+
     function clearInpust() {
         $('form :input').val('');
         $('.input-group').removeClass('has-success');
     }
-    function filter(){
-      $.ajax({
-          type: "POST",
-          url: "controller/listar_userController.php",
-          data: {
-              'action': "listar"
-          },
-          success: function(data) {
-              $('.tbody').html(data);
-          },
-          error: function(data) {
-              console.log(data);
-          }
-      });
+
+    function filter() {
+        $.ajax({
+            type: "POST",
+            url: "controller/listar_userController.php",
+            data: {
+                'action': "listar"
+            },
+            success: function(data) {
+                $('.tbody').html(data);
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
     }
 </script>
