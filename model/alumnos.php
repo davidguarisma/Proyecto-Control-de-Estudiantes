@@ -35,5 +35,3 @@ function get_materias_alumnos(){
   }
   return $data;
 }
-
- ?>
