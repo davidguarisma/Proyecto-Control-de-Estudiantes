@@ -74,56 +74,24 @@ require_once('headView.phhtml');
                         <h2 class="text-center">Bienvenido</h2>
                         </div>
                       </div>
-                      <?php  if ($_SESSION['tipo_user'] ==="administrador") {?>
+                      <?php  if ($_SESSION['tipo_user'] ==="administrador") { ?>
+                        <?php
+                           require_once("model/countPnfModel.php");
+                           $row = get_pnf_alumnos();
+                        ?>
                           <div class="row padding-top ">
-                            <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div class="panel panel-back noti-box">
-                                    <div class="text-box">
-                                        <p class="main-text">120 Alumnos</p>
-                                        <p class="text-muted">PNF en Electricidad</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div class="panel panel-back noti-box">
-                                    <div class="text-box">
-                                        <p class="main-text">30 Alumnos</p>
-                                        <p class="text-muted">PNF en Sistemas de Calidad y Ambiente</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div class="panel panel-back noti-box">
-                                    <div class="text-box">
-                                        <p class="main-text">240 New</p>
-                                        <p class="text-muted">PNF en Geociencia</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div class="panel panel-back noti-box">
-                                    <div class="text-box">
-                                        <p class="main-text">3 Alumnos</p>
-                                        <p class="text-muted">PNF en Informática</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div class="panel panel-back noti-box">
-                                    <div class="text-box">
-                                        <p class="main-text">3 Alumnos</p>
-                                            <p class="text-muted">PNF en Ingeniería de Mantenimiento</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-6">
-                                <div class="panel panel-back noti-box">
-                                    <div class="text-box">
-                                          <p class="main-text">3 Alumnos</p>
-                                        <p class="text-muted">PNF en Mecánica</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php foreach ($row as $item) {  ?>
+                              <div class="col-md-4 col-sm-6 col-xs-6">
+                                  <div class="panel panel-back noti-box">
+                                      <div class="text-box">
+                                          <p class="main-text"><?php echo $item['contador']; ?> Alumnos</p>
+                                          <p class="text-muted"><?php echo $item['pnf_user']; ?></p>
+                                      </div>
+                                  </div>
+                              </div>
+                          <?php
+                            }
+                           ?>
                         </div>
                         <?php } if ($_SESSION['tipo_user'] ==="estudiantes") { ?>
                           <div class="row">
@@ -149,7 +117,7 @@ require_once('headView.phhtml');
                                         ?>
                                           <tr>
                                               <td><?php echo $number; ?></td>
-                                              <td> <?php echo $item['pnf']; ?></td>
+                                              <td> <?php echo $item['pnfs']; ?></td>
                                               <td> <?php echo $item['trayecto']; ?></td>
                                               <td> Semestre <?php echo $item['nombre_semestre'] ?> </td>
                                               <td><?php echo string_ucfirst($item['materia']); ?></td>
