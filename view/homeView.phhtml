@@ -1,0 +1,159 @@
+<?php
+    require_once('headerView.phhtml');
+?>
+    <main id="main">
+        <div class="container tab-container">
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#login">Login</a></li>
+                    <li><a data-toggle="tab" href="#registro">Registro</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="login" class="tab-pane fade in active">
+                        <form class="form-horizontal login">
+                            <div class="form-group">
+                                <label for="email o cedula" class="control-label col-xs-3">Usuario: </label>
+                                <div class="col-xs-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingresa tu correo | cedula">
+                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="clave" class="control-label col-xs-3">Clave: </label>
+                                <div class="col-xs-9">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name='clave' placeholder="Password">
+                                        <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-md">Entrar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="registro" class="tab-pane fade">
+                        <form class="form-horizontal form_registro">
+                          <div class="form-group">
+                              <label for="Nombres" class="control-label col-xs-3">Nombres: </label>
+                              <div class="col-xs-9">
+                                  <div class="input-group">
+                                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tus Nombres">
+                                      <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="Apellidos" class="control-label col-xs-3">Apellidos: </label>
+                              <div class="col-xs-9">
+                                  <div class="input-group">
+                                      <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingresa tus Apellidos">
+                                      <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                  </div>
+                              </div>
+                          </div>
+                            <div class="form-group">
+                                <label for="cedula" class="control-label col-xs-3">Cedula:</label>
+                                <div class="col-xs-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" minlenght="6" maxlength="10" id="cedula" name="cedula" placeholder="Ingresa Cedula">
+                                        <span class="input-group-addon"><i class="fa fa-indent" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="control-label col-xs-3">Email:</label>
+                                <div class="col-xs-9">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" minlenght="6" maxlength="30" id="email" name="email" placeholder="Ingresa Email">
+                                        <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="clave" class="control-label col-xs-3">Teléfono: </label>
+                                <div class="col-xs-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="telefono" minlenght="6" maxlength="11"  name="telefono" placeholder="Ingresa tu numero de teléfono">
+                                        <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="clave" class="control-label col-xs-3">Clave:</label>
+                                <div class="col-xs-9">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" minlenght="5" maxlength="20" id="clave" name="clave" placeholder="Ingresa Clave">
+                                        <span class="input-group-addon"><i class="fa fa-unlock-alt fa-lg" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-xs-12">
+                                <div class="input-group imput-ground_1">
+                                  <div class="form-group">
+                                  <select name="pnf" id="pnfS"  class="form-control" onchange="setactive('#trayectoS')" >
+                                          <option selected disabled value="">Selecciona PNF: </option>
+                                          <option value="1">PNF en Electricidad</option>
+                                          <option value="2">PNF en Ingeniería de Mantenimiento</option>
+                                          <option value="3">PNF en Mecánica</option>
+                                          <option value="4">PNF en Informática</option>
+                                          <option value="5">PNF en Geociencia</option>
+                                          <option value="6">PNF en Sistemas de Calidad y Ambiente</option>
+                                  </select>
+                                </div>
+                              </div>
+                           </div>
+                             <div class="col-xs-12">
+                               <div class="input-group imput-ground_1">
+                                <div class="form-group">
+                                  <select name="trayecto" id="trayectoS" class="form-control"  disabled onchange="setSemestre('#trayectoS','#semestreS')">
+                                      <option selected disabled value="">Seleccione: </option>
+                                      <option value="1">Trayecto I</option>
+                                      <option value="2">Trayecto II</option>
+                                      <option value="3">Trayecto III</option>
+                                      <option value="4">Trayecto IV</option>
+                                  </select>
+                              </div>
+                            </div>
+                           </div>
+
+                             <div class="col-xs-12">
+                                <div class="input-group imput-ground_1">
+                                  <div class="form-group">
+                                  <select name="Semestre" id="semestreS"  class="form-control" disabled onchange="setRegis()">
+                                      <option selected disabled value="">Seleccione</option>
+                                  </select>
+                                </div>
+                              </div>
+                           </div>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-md registro">Registrar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="msj text-center">
+                        <div id="floatingBarsG">
+                            <div class="blockG" id="rotateG_01"></div>
+                            <div class="blockG" id="rotateG_02"></div>
+                            <div class="blockG" id="rotateG_03"></div>
+                            <div class="blockG" id="rotateG_04"></div>
+                            <div class="blockG" id="rotateG_05"></div>
+                            <div class="blockG" id="rotateG_06"></div>
+                            <div class="blockG" id="rotateG_07"></div>
+                            <div class="blockG" id="rotateG_08"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<?php
+  require_once('footerView.phhtml');
+?>

@@ -1,0 +1,453 @@
+@import url("style-datatable.css");
+
+main {
+    min-height: 400px;
+    margin-bottom: 50px;
+    padding-top: 50px;
+}
+.my-toggle-password{
+      margin-top: 0px !important;
+}
+.imput-ground_1{
+  width: 90%;
+  margin: 0 auto;
+}
+.padding-off{
+  padding:0px;
+}
+.btn {
+    /*width: 50%;*/
+}
+.fa-trash-o{
+  color:red;
+}
+.tab-container .nav-tabs {
+    width: 40%;
+    margin: 0 auto;
+}
+.tab-container .nav-tabs li {
+    width: 50%;
+}
+.tab-container .nav-tabs li a {
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.tab-container .nav-tabs li a:hover, .tab-container .nav-tabs li a:focus {
+    outline: 0;
+    cursor: pointer;
+}
+.tab-container .tab-content {
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px 20px 0 20px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.my-toggle-password {
+    border: 0;
+    background: transparent;
+    border-radius: 0.25em;
+    color: black;
+    top: 7px !important;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-right: 0.5em;
+    padding: 0.5em;
+    text-transform: uppercase;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    display: block !important;
+}
+.my-toggle-password i {
+    font-size: 1.3em;
+}
+.my-toggle-password:hover, .my-toggle-password:focus {
+    outline: transparent;
+}
+.hideShowPassword-wrapper {
+    width: 100% !important;
+}
+span.error {
+    display: none !important;
+}
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+footer {
+    height: 50px;
+    background: #ddd;
+    width: 100%;
+    position: relative;
+}
+
+/*loaing spinners*/
+
+#floatingBarsG {
+    position: relative;
+    width: 29px;
+    height: 37px;
+    margin: auto;
+    margin-bottom: 5px;
+    display: none;
+}
+.msj {
+  width: 100%;
+}
+.msj p{
+  padding: 5%;
+  font-weight: 500;
+}
+.blockG {
+    position: absolute;
+    background-color: rgb(93, 142, 240);
+    width: 5px;
+    height: 11px;
+    border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    transform: scale(0.4);
+    -o-transform: scale(0.4);
+    -ms-transform: scale(0.4);
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    animation-name: fadeG;
+    -o-animation-name: fadeG;
+    -ms-animation-name: fadeG;
+    -webkit-animation-name: fadeG;
+    -moz-animation-name: fadeG;
+    animation-duration: 1.35s;
+    -o-animation-duration: 1.35s;
+    -ms-animation-duration: 1.35s;
+    -webkit-animation-duration: 1.35s;
+    -moz-animation-duration: 1.35s;
+    animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-direction: normal;
+    -o-animation-direction: normal;
+    -ms-animation-direction: normal;
+    -webkit-animation-direction: normal;
+    -moz-animation-direction: normal;
+}
+#rotateG_01 {
+    left: 0;
+    top: 13px;
+    animation-delay: 0.51s;
+    -o-animation-delay: 0.51s;
+    -ms-animation-delay: 0.51s;
+    -webkit-animation-delay: 0.51s;
+    -moz-animation-delay: 0.51s;
+    transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+}
+#rotateG_02 {
+    left: 4px;
+    top: 5px;
+    animation-delay: 0.68s;
+    -o-animation-delay: 0.68s;
+    -ms-animation-delay: 0.68s;
+    -webkit-animation-delay: 0.68s;
+    -moz-animation-delay: 0.68s;
+    transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+}
+#rotateG_03 {
+    left: 12px;
+    top: 1px;
+    animation-delay: 0.85s;
+    -o-animation-delay: 0.85s;
+    -ms-animation-delay: 0.85s;
+    -webkit-animation-delay: 0.85s;
+    -moz-animation-delay: 0.85s;
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+}
+#rotateG_04 {
+    right: 4px;
+    top: 5px;
+    animation-delay: 1.01s;
+    -o-animation-delay: 1.01s;
+    -ms-animation-delay: 1.01s;
+    -webkit-animation-delay: 1.01s;
+    -moz-animation-delay: 1.01s;
+    transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+}
+#rotateG_05 {
+    right: 0;
+    top: 13px;
+    animation-delay: 1.18s;
+    -o-animation-delay: 1.18s;
+    -ms-animation-delay: 1.18s;
+    -webkit-animation-delay: 1.18s;
+    -moz-animation-delay: 1.18s;
+    transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+#rotateG_06 {
+    right: 4px;
+    bottom: 3px;
+    animation-delay: 1.35s;
+    -o-animation-delay: 1.35s;
+    -ms-animation-delay: 1.35s;
+    -webkit-animation-delay: 1.35s;
+    -moz-animation-delay: 1.35s;
+    transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+}
+#rotateG_07 {
+    bottom: 0;
+    left: 12px;
+    animation-delay: 1.52s;
+    -o-animation-delay: 1.52s;
+    -ms-animation-delay: 1.52s;
+    -webkit-animation-delay: 1.52s;
+    -moz-animation-delay: 1.52s;
+    transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+}
+#rotateG_08 {
+    left: 4px;
+    bottom: 3px;
+    animation-delay: 1.69s;
+    -o-animation-delay: 1.69s;
+    -ms-animation-delay: 1.69s;
+    -webkit-animation-delay: 1.69s;
+    -moz-animation-delay: 1.69s;
+    transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+}
+@keyframes fadeG {
+    0% {
+        background-color:rgb(93, 142, 240);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+@-o-keyframes fadeG {
+    0% {
+        background-color: rgb(93, 142, 240);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+@-ms-keyframes fadeG {
+    0% {
+        background-color: rgb(93, 142, 240);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+@-webkit-keyframes fadeG {
+    0% {
+        background-color: rgb(93, 142, 240);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+@-moz-keyframes fadeG {
+    0% {
+        background-color: rgb(93, 142, 240);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+.padding-top{
+  margin-top: 5%;
+}
+
+
+
+
+/********* Materias **************/
+
+.mate a.optTable {
+    padding: 0 0.5em;
+}
+.mate .fa-power-off{
+  color: rgb(40, 209, 52);
+}
+
+.mate .fa-trash-o{
+  color: red;
+}
+
+.mate .cont-fillter {
+    text-align: right;
+}
+
+.mate .btn-new {
+    width: 80px;
+    border-radius: 1px;
+    height: 35px;
+}
+.mate .btn-refresh {
+    width: 120px;
+    border-radius: 1px;
+    height: 35px;
+}
+
+.mate .btn-new i {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+
+.mate .cont-fillter{
+    padding: 1.5em 0;
+}
+
+.mate .cont-fillter select.form-control{
+    border-radius: 1px;
+}
+
+.mate .titleMat{
+    font-weight: 700;
+    margin-top: -0.5em;
+}
+
+.mate .resetTable {
+    width: 100%;
+    display: block;
+    text-align: right;
+    padding: 1.5em 0;
+}
+
+/***** estas son las unicas que pueden chocar *****/
+
+#myModal button.btn-modal, #myModal2 button.btn-modal, .btn-modal {
+    width: 80%;
+    border-radius: 1px;
+    margin: 0 auto;
+    display: block;
+}
+
+
+#myModal .modal-header, #myModal2 .modal-header, #new_user .modal-header  {
+    background: darkgray;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px 5px 0 0;
+}
+
+#myModal h4.modal-title, #myModal2 h4.modal-title {
+    font-weight: 700;
+}
+
+#myModal label, #myModal2 label, #new_user label {
+    text-align: left;
+    width: 100%;
+    padding-left: 8px;
+}
+
+#myModal select.form-control,#myModal2 select.form-control,#myModal input[type="text"],#myModal2 input[type="text"]{
+    border-radius: 2px;
+}
+/************************/
+.equipo{
+  border:1px solid #ddd;
+  position: absolute;
+  width: 50%;
+  margin: 0 auto;
+  left: 25%;
+}
+.equipo h4{
+  font-weight: bolder;
+  color: #656363;
+  text-align: left;
+  padding: 5%;
+  text-transform: uppercase;
+}
+.equipo p{
+  text-align: left;
+}
+.fa-icon{
+  height: 0px;
+  border-right: 68px solid rgba(255, 212, 0, 0.9);
+  border-left: 60px solid transparent;
+  border-bottom: 150px solid rgba(255, 212, 0, 0.9);
+}
+.equipo .fa-users{
+  width: 70px;
+  height: 70px;
+  display: block;
+  margin-top: 45px;
+  margin-left: 25px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: rgba(130, 109, 0, 0.59);
+  padding-top: 15px;
+  font-size: 3.2em;
+  color: #fff;
+}
+
+ .proyecto{
+    border:1px solid #ddd;
+    position: absolute;
+    width: 50%;
+    margin: 0 auto;
+    left: 25%;
+    top: 150px;
+}
+.proyecto .fa-icon{
+  width: 117px;
+  height: 0px;
+  border-right: 66px solid transparent ;
+  border-left: 60px solid #319bc3;
+  border-bottom: 150px solid #319bc3;
+}
+.proyecto p{
+  padding-top: 15%;
+  color: #5d5757;
+  font-weight: 500;
+}
+.proyecto img {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-top: 40px;
+  margin-left: -45px;
+}

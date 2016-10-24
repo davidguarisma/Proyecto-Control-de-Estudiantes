@@ -26,8 +26,23 @@ table.dataTable.no-footer {
     background: rgba(255, 255, 255, 0);
     border-style: none;
     margin-right: 118px;
+    text-align: left;
 }
 
 .dataTables_filter {
     right: 20px;
+}
+
+.btn-new {
+    width: 80px;
+    border-radius: 1px;
+    height: 35px;
+}
+
+.padding-top-2{
+  padding-top: 2%;
+}
+
+.paddingBottom{
+      padding-bottom: 2%;
 }
