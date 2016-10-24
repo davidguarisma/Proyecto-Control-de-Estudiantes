@@ -318,6 +318,10 @@ footer {
     text-align: right;
 }
 
+.repo.mate .cont-fillter {
+    text-align: center;
+}
+
 .mate .btn-new {
     width: 80px;
     border-radius: 1px;

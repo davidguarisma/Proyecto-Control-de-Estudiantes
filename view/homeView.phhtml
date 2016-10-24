@@ -124,7 +124,7 @@
                              <div class="col-xs-12">
                                 <div class="input-group imput-ground_1">
                                   <div class="form-group">
-                                  <select name="Semestre" id="semestreS"  class="form-control" disabled onchange="setRegis()">
+                                  <select name="Semestre" id="semestreS"  class="form-control" disabled >
                                       <option selected disabled value="">Seleccione</option>
                                   </select>
                                 </div>
