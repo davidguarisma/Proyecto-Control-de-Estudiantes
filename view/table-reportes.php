@@ -71,8 +71,11 @@ function mate(){
 }
 
 function repor(){
-  console.log('dentro');
-  var t = $("#mate").val();
-  window.location.href = '../app/report/index.php?curso='+t;
+  var t = $("#trayectoS").val();
+  var s = $("#semestreS").val();
+  var p = $("#pnfS").val();
+  var m = $("#mate").val();
+
+  window.location.href = '../app/report/index.php?curso='+m+'&tra='+t+'&sem='+s+'&pnf='+p;
 }
 </script>

@@ -13,4 +13,3 @@ class reporte{
 	}
 }
 ?>
-SELECT id_materias, materia, nombre_semestre, trayecto, pnf, id_semestre  FROM materias INNER JOIN semestre on semestre_id = id_semestre AND id_materias ="'.$id.
