@@ -2,6 +2,24 @@
 require_once('config/config.php');
 $mysqli = crearConexion();
 
+$mysqli->query("CREATE TABLE `usuarios` (
+  `id_user` int(11) NOT NULL,
+  `cedula` int(11) NOT NULL,
+  `nombres` char(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `apellidos` char(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `correo` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `telefono` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `pnf_user` int(11) NOT NULL,
+  `trayecto_user` int(11) NOT NULL,
+  `semestre_user` int(11) NOT NULL,
+  `clave` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `tipo_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;");
+
+$mysqli->query("INSERT INTO `usuarios`(`id_user`, `cedula`, `nombres`, `apellidos`,
+   `correo`, `telefono`, `pnf_user`, `trayecto_user`, `semestre_user`, `clave`,
+   `tipo_usuario`) VALUES (NULL,1234567,'Admin','admin','admin@gmail.com',0, 0, 0, 0,'fcea920f7412b5da7be0cf42b8c93759',2);");
+
 $mysqli->query("CREATE TABLE `historial` (
   `id_historial` int(11) NOT NULL,
   `user` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
@@ -18,12 +36,11 @@ $mysqli->query("CREATE TABLE `materias` (
   `apertura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci");
 
-$mysqli->query("CREATE TABLE  `inscripcion` (
-  `id_inscripcion` int(11) NOT NULL AUTO_INCREMENT,
+$mysqli->query("CREATE TABLE `inscripcion` (
+  `id_inscripcion` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `id_semestre` int(11) NOT NULL
-  PRIMARY KEY (`id_inscripcion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1");
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;");
 
 $mysqli->query("CREATE TABLE `semestre` (
   `id_semestre` int(11) NOT NULL AUTO_INCREMENT,
@@ -33,25 +50,14 @@ $mysqli->query("CREATE TABLE `semestre` (
   PRIMARY KEY (`id_semestre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;");
 
-$mysqli->query("CREATE TABLE `usuarios` (
-  `id_user` int(11) NOT NULL,
-  `cedula` int(11) NOT NULL,
-  `nombres` char(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `apellidos` char(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `correo` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `telefono` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `pnf_user` int(11) NOT NULL,
-  `trayecto_user` int(11) NOT NULL,
-  `semestre_user` int(11) NOT NULL,
-  `clave` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `tipo_usuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci");
-
-$mysqli->query("INSERT INTO `usuarios`(`id_user`, `cedula`, `nombres`, `apellidos`, `correo`, `telefono`, `pnf_user`, `trayecto_user`, `semestre_user`, `clave`, `tipo_usuario`)
-VALUES (NULL,1234567,'Admin','admin','admin@gmail.com','0', 0, 0, 0,md5('1234567'),2)");
-
 
 $mysqli->query("ALTER TABLE `historial` ADD PRIMARY KEY (`id_historial`)");
+
+$mysqli->query("ALTER TABLE `inscripcion`
+  ADD PRIMARY KEY (`id_inscripcion`);");
+
+$mysqli->query("ALTER TABLE `inscripcion`
+  MODIFY `id_inscripcion` int(11) NOT NULL AUTO_INCREMENT;");
 
 $mysqli->query("ALTER TABLE `materias`
   ADD PRIMARY KEY (`id_materias`),
