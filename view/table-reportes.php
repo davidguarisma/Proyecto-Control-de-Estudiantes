@@ -32,6 +32,9 @@
 
 </div>
 
+
+
+
 <script type="text/javascript">
 
 function refresh(){
@@ -76,7 +79,45 @@ function repor(){
   var m = $("#mate").val();
   window.location.href = '../app/report/index.php?curso='+m+'&tra='+t+'&sem='+s+'&pnf='+p;
 }
+
 $(function () {
+
+  $.ajax({
+      type: "POST",
+      dataType: 'json',
+      url: "model/countPnfModel2.php",
+      data: { 'id': 1 },
+      success: function(data) {
+        console.log(data);
+        //
+        // if(data.status == true){
+        //   swal({
+        //       confirmButtonText: 'OK',
+        //       title: 'ok',
+        //       type: 'success'
+        //   }).then(
+        //       function(result) {
+        //         listar();
+        //       })
+        // }else{
+        //   swal({
+        //       confirmButtonText: 'OK',
+        //       title: 'Error al modificar Apertura',
+        //       type: 'error'
+        //   })
+        // }
+
+
+
+      },
+      error: function(data) {
+        console.log(data);
+      }
+  });
+
+
+
+
     $('#container').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -140,4 +181,5 @@ $(function () {
     });
 });
 </script>
+<br>
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>

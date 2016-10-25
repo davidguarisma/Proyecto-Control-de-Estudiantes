@@ -66,9 +66,9 @@
                     </td>
                     <td>
                         <!--  -->
-                        <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" class="btn_edit optTable" onclick="edit(<?php echo $item['id_materias']; ?>)" id="<?php echo $item['id_materias']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a href="javascript:void(0)"  class="btn_trash optTable" id="<?php echo $item['id_semestre']; ?>"><i class="fa fa-trash-o" onclick="trash(<?php echo $item['id_semestre']; ?>)" aria-hidden="true"></i></a>
-                        <a href="javascript:void(0)"  class="btn_power optTable" id="<?php echo $item['id_materias']; ?>"><i class="fa fa-power-off" onclick="power(<?php echo $item['id_materias']; ?>)" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="modal" data-target="#myModal" class="btn_edit optTable" onclick="edit(<?php echo $item['id_materias']; ?>)" id="<?php echo $item['id_materias']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="#"  class="btn_trash optTable" id="<?php echo $item['id_semestre']; ?>"><i class="fa fa-trash-o" onclick="trash(<?php echo $item['id_semestre']; ?>)" aria-hidden="true"></i></a>
+                        <a href="#"  class="btn_power optTable" id="<?php echo $item['id_materias']; ?>"><i class="fa fa-power-off" onclick="power(<?php echo $item['id_materias']; ?>)" aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 <?php } ?>
