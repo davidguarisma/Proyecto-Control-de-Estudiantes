@@ -56,7 +56,7 @@ switch ($se) {
 		$sem = 'Semestre VIII';
 		break;
 	default:
-		
+
 		break;
 }
 
@@ -74,7 +74,7 @@ switch ($tr) {
 		$tra = 'trayecto IV';
 		break;
 	default:
-		
+
 		break;
 }
 
@@ -83,16 +83,16 @@ switch ($tr) {
 
 
 	include('../config/config.php');
-	
+
 	$mysqli = crearConexion();
-    
+
 $consultaM = '
 		SELECT materia, semestre_id FROM materias WHERE id_materias = "'.$id_curso.'" ';
 
 	$resultadoM = $mysqli->query($consultaM);
-	
+
 	$datosM = array();
-	
+
 	while ($rowM = $resultadoM->fetch_array()){
     		$nombreMateria = $rowM['materia'];
     		$idSemestre = $rowM['semestre_id'];
@@ -100,13 +100,13 @@ $consultaM = '
 
 
     $consulta = '
-		SELECT nombres, apellidos, cedula FROM usuarios INNER JOIN inscripcion on id_semestre = "'.$idSemestre.'" 
+		SELECT nombres, apellidos, cedula FROM usuarios INNER JOIN inscripcion on id_semestre = "'.$idSemestre.'"
 			GROUP BY id_user';
 
 	$resultado = $mysqli->query($consulta);
-	
+
 	$datos = array();
-	
+
 	while ($row = $resultado->fetch_array()){
     		$datos[] = $row;
 	}
@@ -130,45 +130,45 @@ $consultaM = '
 <body>
 <table width="100%" border="1">
   <tr>
-    <td colspan="6">
-    	<center><strong><?php echo $nombre_curso; ?></strong></center>
+		<td colspan="3"><center><strong><?php echo  strtoupper($pnf); ?></strong></center></td>
+    <td colspan="3">
+    	<center><strong>Nombre de  Materia:<?php echo strtoupper($nombre_curso); ?></strong></center>
     </td>
   </tr>
   <tr>
     <td width="5%"><center><strong>No.</strong></center></td>
-    <td width="20%"><center><strong>PNF</strong></center></td>    
-    <td width="20%"><center><strong>Trayecto</strong></center></td>    
-    <td width="20%"><center><strong>Semestre</strong></center></td>    
-    <td width="20%"><strong>Apellido y Nombre del Alumno</strong></td>
-    <td width="15%"><center><strong>Cedula</strong></center></td>
+    <td width="20%"><center><strong>Trayecto</strong></center></td>
+    <td width="20%"><center><strong>Semestre</strong></center></td>
+		<td width="15%"><center><strong>Cedula</strong></center></td>
+    <td width="20%"><strong>Apellidos</strong></td>
+		<td width="20%"><strong>Nombres</strong></td>
 
   </tr>
 
-<?php 
+<?php
       $number =0;
    if (is_array($datos) || is_object($datos)){
      foreach ($datos as $item) {
       $number++;
 
-     echo '  
+     echo '
   <tr>
     <td><center><strong>'.$number.'</strong></center></td>
-    <td><center>'.$pnf.'</center></td>    
-    <td><center>'.$tra.'</center></td>    
-    <td><center>'.$sem.'</center></td>    
-    <td>'.$item["nombres"].' '.$item["apellidos"].'</td>
-    <td><center>'.$item["cedula"].'</center></td>
+    <td><center>'.$tra.'</center></td>
+    <td><center>'.$sem.'</center></td>
+		<td><center>'.$item["cedula"].'</center></td>
+    <td>'.$item["apellidos"].'</td>
+	  <td>'.$item["nombres"].'</td>
   </tr>';
 
   }
    }
 if($number == 0){
-   echo '  
+   echo '
   <tr>
-    <td colspan="6"><center>No hay regitros </center></td>    
+    <td colspan="6"><center>No hay regitros </center></td>
   </tr>';
-
-}   
+}
 
  ?>
 </table>

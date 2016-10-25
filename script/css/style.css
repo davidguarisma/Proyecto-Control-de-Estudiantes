@@ -5,6 +5,11 @@ main {
     margin-bottom: 50px;
     padding-top: 50px;
 }
+.highcharts-button-symbol{
+  fill: rgb(102, 102, 102);
+  stroke: rgb(102, 102, 102);
+  stroke-width: 3;
+}
 .my-toggle-password{
       margin-top: 0px !important;
 }

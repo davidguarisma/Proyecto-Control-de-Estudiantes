@@ -1,5 +1,7 @@
 <script type="text/javascript" src="lib/jquery.js" charset="utf-8"></script>
 <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="lib/highcharts.js" charset="utf-8"></script>
+<script type="text/javascript" src="lib/exporting.js" charset="utf-8"></script>
 <script type="text/javascript" src="lib/dataTables-js/jquery.dataTables.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="lib/dataTables-js/dataTables.bootstrap.min.js" charset="utf-8"></script>
 <script type="text/javascript" src='lib/jquery.validate.js'></script>
