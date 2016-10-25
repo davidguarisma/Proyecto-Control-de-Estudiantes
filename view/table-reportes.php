@@ -85,11 +85,20 @@ $(function () {
             type: 'pie'
         },
         title: {
-            text: 'Browser market shares January, 2015 to May, 2015'
+            text: 'Alumnos Inscritos por PNF'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
+        lang: {
+           loading: 'Aguarde...',
+           exportButtonTitle: "Exportar",
+           printChart: "Imprimir",
+           downloadPNG: 'Descargar en formato  PNG',
+           downloadJPEG: 'Descargar en formato PEG',
+           downloadPDF: 'Descargar en formato  PDF',
+           downloadSVG: 'Descargar en formato em SVG'
+           },
         plotOptions: {
             pie: {
                 allowPointSelect: true,
@@ -107,25 +116,25 @@ $(function () {
             name: 'Brands',
             colorByPoint: true,
             data: [{
-                name: 'Microsoft Internet Explorer',
-                y: 56.33
+                name: 'Electricidad',
+                y: 5
             }, {
-                name: 'Chrome',
-                y: 24.03,
+                name: 'Mantenimiento',
+                y: 10,
                 sliced: true,
                 selected: true
             }, {
-                name: 'Firefox',
-                y: 10.38
+                name: 'Mecánica',
+                y: 3
             }, {
-                name: 'Safari',
-                y: 4.77
+                name: 'Informática',
+                y: 5
             }, {
-                name: 'Opera',
-                y: 0.91
+                name: 'Geociencia',
+                y: 15
             }, {
-                name: 'Proprietary or Undetectable',
-                y: 0.2
+                name: 'Calidad y Ambiente',
+                y: 20
             }]
         }]
     });
