@@ -7,12 +7,3 @@ function nameLogeado(){
   $_SESSION['tipo_user'] = $row['tipo_user'];
   echo string_ucfirst($row["nombres"]).' '.string_ucfirst($row["apellidos"]);
 }
-
-function name_pnf(){
-  $mysqli = crearConexion();
-  $consulta = 'SELECT * FROM semestre WHERE id_user="'. $_SESSION['id_register'].'" LIMIT 1';
-  $resultado = $mysqli->query($consulta);
-  print_r(  $resultado->fetch_array());
-}
-
-?>

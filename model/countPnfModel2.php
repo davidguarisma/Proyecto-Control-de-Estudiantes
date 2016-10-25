@@ -1,4 +1,6 @@
 <?php
+include('../config/config.php');
+
 function get_pnf_alumnos(){
     $mysqli = crearConexion();
     $consulta = 'SELECT pnf_user, 	case pnf_user WHEN 1 THEN  "PNF en Electricidad"
@@ -12,7 +14,13 @@ function get_pnf_alumnos(){
 
   $data = array();
   while ( $row = $resultado->fetch_array()) {
-  $data[] =$row;
+    $data[] =$row;
   }
-  return $data;
+
+  $num = mysqli_num_rows($resultado);
+  $data['valor'] = $num;
+  echo json_encode($data);
 }
+
+get_pnf_alumnos();
+ ?>

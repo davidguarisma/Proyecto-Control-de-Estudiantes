@@ -31,6 +31,10 @@
     </div>
 
 </div>
+
+
+
+
 <script type="text/javascript">
 
 function refresh(){
@@ -50,9 +54,7 @@ function mate(){
         var valor = '<option selected disabled value="">Seleccione la Materia</option>'
         if(data['valor'] != 0){
           for (var i = 0; i < data['valor']; i++) {
-            console.log(data[i].id_materias);
             valor = valor + '<option   value="'+data[i].id_materias+'">'+data[i].materia+'</option>';
-            console.log(data[i].materia);
           }
           $('#mate').html(valor);
         }else{
@@ -75,7 +77,109 @@ function repor(){
   var s = $("#semestreS").val();
   var p = $("#pnfS").val();
   var m = $("#mate").val();
-
   window.location.href = '../app/report/index.php?curso='+m+'&tra='+t+'&sem='+s+'&pnf='+p;
 }
+
+$(function () {
+
+  $.ajax({
+      type: "POST",
+      dataType: 'json',
+      url: "model/countPnfModel2.php",
+      data: { 'id': 1 },
+      success: function(data) {
+        console.log(data);
+        //
+        // if(data.status == true){
+        //   swal({
+        //       confirmButtonText: 'OK',
+        //       title: 'ok',
+        //       type: 'success'
+        //   }).then(
+        //       function(result) {
+        //         listar();
+        //       })
+        // }else{
+        //   swal({
+        //       confirmButtonText: 'OK',
+        //       title: 'Error al modificar Apertura',
+        //       type: 'error'
+        //   })
+        // }
+
+
+
+      },
+      error: function(data) {
+        console.log(data);
+      }
+  });
+
+
+
+
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Alumnos Inscritos por PNF'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        lang: {
+           loading: 'Aguarde...',
+           exportButtonTitle: "Exportar",
+           printChart: "Imprimir",
+           downloadPNG: 'Descargar en formato  PNG',
+           downloadJPEG: 'Descargar en formato PEG',
+           downloadPDF: 'Descargar en formato  PDF',
+           downloadSVG: 'Descargar en formato em SVG'
+           },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Electricidad',
+                y: 5
+            }, {
+                name: 'Mantenimiento',
+                y: 10,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Mecánica',
+                y: 3
+            }, {
+                name: 'Informática',
+                y: 5
+            }, {
+                name: 'Geociencia',
+                y: 15
+            }, {
+                name: 'Calidad y Ambiente',
+                y: 20
+            }]
+        }]
+    });
+});
 </script>
+<br>
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
