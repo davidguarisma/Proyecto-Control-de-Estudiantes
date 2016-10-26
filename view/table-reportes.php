@@ -32,40 +32,6 @@
 
 </div>
 
-<?php
-    $cont = array(0,0,0,0,0,0);
-    $mysqli = crearConexion();
-    $consulta = 'SELECT pnf_user, case pnf_user WHEN 1 THEN  "PNF en Electricidad"
-        WHEN 2 THEN  "PNF en Ingeniería de Mantenimiento"
-            WHEN 3 THEN  "PNF en Mecánica"
-            WHEN 4 THEN  "PNF en Informática"
-            WHEN 5 THEN  "PNF en Geociencia"
-            WHEN 6 THEN  "PNF en Sistemas de Calidad y Ambiente"
-        END AS pnf,count(*) as contador FROM usuarios GROUP BY pnf_user';
-    
-    $resultado = $mysqli->query($consulta);
-
-  
-  $data = array();
-  $i = 0;
-    while ( $row = $resultado->fetch_array()) {
-  $cont[$i] = $row["contador"];
-  $i++;
-  }
- ?>
-
-<script>
-  var pnf1 = <?php echo $cont[0]; ?>;
-  var pnf2 = <?php echo $cont[1]; ?>;
-  var pnf3 = <?php echo $cont[2]; ?>;
-  var pnf4 = <?php echo $cont[3] ?>;
-  var pnf5 = <?php echo $cont[4] ?>;
-  var pnf6 = <?php echo $cont[5] ?>;
-</script>
-
-
-
-
 <script type="text/javascript">
 
 function refresh(){
@@ -110,10 +76,7 @@ function repor(){
   var m = $("#mate").val();
   window.location.href = '../app/report/index.php?curso='+m+'&tra='+t+'&sem='+s+'&pnf='+p;
 }
-
-
 $(function () {
-  
     $('#container').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -122,20 +85,21 @@ $(function () {
             type: 'pie'
         },
         title: {
-            text: 'Alumnos Inscritos por PNF'
+            text: 'Browser market shares January, 2015 to May, 2015'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
-        lang: {
-           loading: 'Aguarde...',
-           exportButtonTitle: "Exportar",
-           printChart: "Imprimir",
-           downloadPNG: 'Descargar en formato  PNG',
-           downloadJPEG: 'Descargar en formato PEG',
-           downloadPDF: 'Descargar en formato  PDF',
-           downloadSVG: 'Descargar en formato em SVG'
-           },
+      lang: {
+            loading: 'Aguarde...',
+            exportButtonTitle: "Exportar",
+            printChart: "Imprimir",
+            downloadPNG: 'Download imagessm PNG',
+            downloadJPEG: 'Download imagem JPEG',
+            downloadPDF: 'Download documento PDF',
+            downloadSVG: 'Download imagssssem SVG'
+            } ,
+
         plotOptions: {
             pie: {
                 allowPointSelect: true,
@@ -153,31 +117,28 @@ $(function () {
             name: 'Brands',
             colorByPoint: true,
             data: [{
-                name: 'Electricidad',
-                y: pnf1
+                name: 'Microsoft Internet Explorer',
+                y: 56.33
             }, {
-                name: 'Mantenimiento',
-                y: pnf2,
+                name: 'Chrome',
+                y: 24.03,
                 sliced: true,
                 selected: true
             }, {
-                name: 'Mecánica',
-                y: pnf3
+                name: 'Firefox',
+                y: 10.38
             }, {
-                name: 'Informática',
-                y: pnf4
+                name: 'Safari',
+                y: 4.77
             }, {
-                name: 'Geociencia',
-                y: pnf5
+                name: 'Opera',
+                y: 0.91
             }, {
-                name: 'Calidad y Ambiente',
-                y: pnf6
+                name: 'Proprietary or Undetectable',
+                y: 0.2
             }]
         }]
     });
-
 });
-   
 </script>
-<br>
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
