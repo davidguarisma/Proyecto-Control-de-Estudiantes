@@ -83,6 +83,57 @@
                            $row = get_pnf_alumnos();
                         ?>
                               <div class="row padding-top ">
+                            <?php  if(empty($row)) { ?>
+                              
+                              <div class="col-md-4 col-sm-6 col-xs-6">
+                                  <div class="panel panel-back noti-box">
+                                      <div class="text-box">
+                                          <p class="main-text"></p>
+                                          <p class="text-muted">PNF en Electricidad</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-6">
+                                  <div class="panel panel-back noti-box">
+                                      <div class="text-box">
+                                          <p class="main-text"></p>
+                                          <p class="text-muted">PNF en Sistemas de Calidad y Ambiente</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-6">
+                                  <div class="panel panel-back noti-box">
+                                      <div class="text-box">
+                                          <p class="main-text"></p>
+                                          <p class="text-muted">PNF en Geociencia</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-6">
+                                  <div class="panel panel-back noti-box">
+                                      <div class="text-box">
+                                          <p class="main-text"></p>
+                                          <p class="text-muted">PNF en Informática</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-6">
+                                  <div class="panel panel-back noti-box">
+                                      <div class="text-box">
+                                          <p class="main-text"></p>
+                                              <p class="text-muted">PNF en Ingeniería de Mantenimiento</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-6">
+                                  <div class="panel panel-back noti-box">
+                                      <div class="text-box">
+                                            <p class="main-text"></p>
+                                          <p class="text-muted">PNF en Mecánica</p>
+                                      </div>
+                                  </div>
+                              </div>
+                            <?php  }else{ ?>
                                 <?php foreach ($row as $item) {  ?>
                                   <div class="col-md-4 col-sm-6 col-xs-6">
                                       <div class="panel panel-back noti-box">
@@ -92,6 +143,7 @@
                                           </div>
                                       </div>
                                   </div>
+                                  <?php } ?>
                                 <?php } ?>
                         </div>
                         <?php } if ($_SESSION['tipo_user'] ==="estudiantes") { ?>

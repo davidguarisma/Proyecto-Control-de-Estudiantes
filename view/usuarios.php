@@ -311,7 +311,6 @@
                 success: function(data) {
                     if (data == 1) {
                         clearInpust();
-                        $("#new_user").modal('hide');
                         swal({
                             confirmButtonText: 'OK',
                             title: 'Registro exitoso!',
@@ -319,6 +318,7 @@
                         }).then(function(result) {
                             $(".container-page").load('../app/view/usuarios.php');
                         })
+                        $("#new_user").modal('hide');
                     } else if (data == 2) {
                         clearInpust();
                         swal({
@@ -397,7 +397,6 @@
                 data: $('#form_edit_user').serialize(),
                 success: function(data) {
                     if (data == 1) {
-                        $("#myModal").modal('hide');
                         swal({
                             confirmButtonText: 'OK',
                             title: 'Datos actualizados!',
@@ -405,6 +404,7 @@
                         }).then(function() {
                             $(".container-page").load('../app/view/usuarios.php');
                         })
+                        $("#myModal").modal('hide');
                     } else if (data == 2) {
                         swal({
                             confirmButtonText: 'OK',
@@ -447,6 +447,7 @@
                         }).then(function() {
                             $(".container-page").load('../app/view/usuarios.php');
                         })
+                        $("#myModal").modal('hide');
                     } else if (data == 2) {
                         swal({
                             confirmButtonText: 'OK',

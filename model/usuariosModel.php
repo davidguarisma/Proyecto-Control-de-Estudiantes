@@ -29,10 +29,9 @@
         if ($resultado->num_rows == 0) {
        $query = sprintf("INSERT INTO usuarios VALUES
         (%d,%d,'%s','%s','%s','%s','%s','%s','%s','%s',%d)",
-         NULL,$cedula,"Administrador","Administrador",$email,"No menciona","","","",md5($password),$tipo_user );
+         NULL,$cedula,"Administrador","Administrador",$email,"No menciona","0","0","0",md5($password),$tipo_user );
           if ( $mysqli->query($query)) {
                   $mensaje =1;
-                  show_user();
               }else{
                  $mensaje = 2;
                  }
