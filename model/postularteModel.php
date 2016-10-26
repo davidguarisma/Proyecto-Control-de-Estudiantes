@@ -16,8 +16,14 @@ require_once('historialModel.php');
 
   function get_inscription($action){
       $mysqli = crearConexion();
-    $consulta = 'SELECT * FROM `inscripcion`';
+    $consulta = 'SELECT id_semestre FROM inscripcion where user_id = "'.$_SESSION['id_register'].'"';
     $resultado = $mysqli->query($consulta);
+
+    $datos=[];
+     while ($row = $resultado->fetch_array()) {
+        $datos[] =$row;
+     }
+
      $mensaje =  array();
     if ($resultado->num_rows != 0) {
         $mensaje =1;
@@ -25,6 +31,6 @@ require_once('historialModel.php');
      $mensaje =  2;
     }
      post_historial($_SESSION['user_correo'],'333','Vista de Alumnos','Ver registro');
-    echo $mensaje;
+    print_r( $datos);
   }
  ?>

@@ -117,14 +117,21 @@
                                           $number ++;
                                         ?>
                                           <tr>
-                                              <td><?php echo $number; ?></td>
+                                              <td><input type="hidden"><?php echo $number; ?></td>
                                               <td> <?php echo $item['pnf']; ?></td>
                                               <td> <?php echo $item['trayecto']; ?></td>
                                               <td> Semestre <?php echo $item['nombre_semestre'] ?> </td>
                                               <td><?php echo string_ucfirst($item['materia']); ?></td>
                                               <td class="text-center">
-                                                  <a href="javascript:void(0)" class="btn_activa" style="display:none" id="<?php  echo $item['id_semestre']; ?>"><i class="fa fa-check-square" aria-hidden="true"></i></a>
-                                                  <a href="javascript:void(0)" class="btn_activa_1" style="display:none"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                <?php
+                                                require_once("model/statusMate.php");
+                                                $row  = status_mate($_SESSION['id_register'], $item['id_semestre']);
+                                                if($row == 1){?>
+                                                  <a href="javascript:void(0)" ><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                <?php }elseif($row == 0){ ?>
+                                                  <a href="javascript:void(0)" class="btn_activa" id="<?php  echo $item['id_semestre']; ?>"><i class="fa fa-check-square" aria-hidden="true"></i></a>
+                                                <?php }?>
+
                                               </td>
                                             </tr>
                                             <?php  } ?>
@@ -193,24 +200,6 @@
       })
   });
   function filter(){
-    $.ajax({
-        type: "POST",
-        url: "controller/postularte_get_Controller.php",
-        data: {
-          'action': 'action'
-        },
-        success: function(data) {
-          if (data == 1) {
-            $(".btn_activa").css('display','none');
-              $(".btn_activa_1").css('display','block');
-          } else if (data == 2) {
-            $(".btn_activa").css('display','block');
-          }
-        },
-        error: function(data) {
-          console.log(data);
-        }
-      });
+    $(location).attr('href', '../app/?action=dashboard');
   }
-  filter();
 </script>
