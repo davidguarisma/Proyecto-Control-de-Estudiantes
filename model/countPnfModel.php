@@ -7,7 +7,7 @@ function get_pnf_alumnos(){
             WHEN 4 THEN  "PNF en Informática"
             WHEN 5 THEN  "PNF en Geociencia"
             WHEN 6 THEN  "PNF en Sistemas de Calidad y Ambiente"
-    		END AS pnf_user,count(*) as contador FROM usuarios GROUP BY pnf_user';
+    		END AS pnf_user,count(*) as contador FROM usuarios WHERE tipo_usuario = 1  GROUP BY pnf_user';
   $resultado = $mysqli->query($consulta);
 
   $data = array();

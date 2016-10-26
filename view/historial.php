@@ -30,8 +30,8 @@
                 <?php } ?>
         </tbody>
     </table>
-    <div class="resetTable">
-        <button class="btn btn-success btn-refresh" onclick="listar();" type="">Vaciar Registros <i class="fa fa-refresh" aria-hidden="true"></i></button>
+    <div class="resetTable" style="text-align: center;">
+        <button class="btn btn-success btn-thats" onclick="listar();" type="">Vaciar Registros </button>
     </div>
 
 </div>
@@ -57,22 +57,35 @@
     });
 
 function listar(){
-
-    $.ajax({
-        type: "POST",
-        dataType: 'json',
-        url: "controller/filterMateController.php",
-        data: { 'opt':2},
-        success: function(data) {
-            $("#resultTable").html(data.dat);
-        },
-        error: function(data) {
+    swal({
+        title: '¿Esta seguro de vaciar los registros?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar!',
+        cancelButtonText: 'Cancelar'
+    }).then(function() {
+      $.ajax({
+          type: "POST",
+          url: "controller/vacias_historial_registrosController.php",
+          data: { action:'action'},
+          success: function(data) {
+             $(".container-page").load('../app/view/historial.php');
             swal({
-                confirmButtonText: 'Error',
-                title: 'Error al listar',
-                type: 'error'
+                confirmButtonText: 'OK',
+                title: 'Se vacio el historial con exito',
+                type: 'success'
             })
-        }
-    });
+          },
+          error: function(data) {
+              swal({
+                  confirmButtonText: 'Error',
+                  title: 'Error al vaciar registros',
+                  type: 'error'
+              })
+          }
+      });
+    }, function(dismiss) {})
 }
 </script>

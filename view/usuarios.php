@@ -165,7 +165,6 @@
                         <select class="form-control" id="tipo_usuario" name="tipo_usuario">
                             <option value=""> --Selecciona-- </option>
                             <option value="2">Administrador</option>
-                            <option value="1">Estudiante</option>
                         </select>
                         <span class="input-group-addon"><i class="fa fa-user-secret fa-lg" aria-hidden="true"></i></span>
                     </div>
