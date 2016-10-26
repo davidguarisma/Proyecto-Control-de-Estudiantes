@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+require_once('historialModel.php');
 function login_user($usuario,$password ){
     $mysqli = crearConexion();
     $usuario = clear_inputs(limpiarCadena($usuario));
@@ -16,6 +16,7 @@ function login_user($usuario,$password ){
       $row = $resultado->fetch_array();
 
       if ($resultado->num_rows == 0) {
+           post_historial($_SESSION['user_correo'],'333','Login','Logearse fallido');
           $mensaje =1;
       }else {
         $_SESSION['id_register'] = $row['id_user'];
@@ -24,6 +25,7 @@ function login_user($usuario,$password ){
         $_SESSION['user_clave'] = $row['clave'];
         $_SESSION['semestre_user'] = $row['semestre_user'];
         $_SESSION['pnf_user'] = $row['pnf_user'];
+        post_historial($_SESSION['user_correo'],'333','Login','Logearse exitoso');
        $mensaje =  2;
       }
     echo $mensaje;

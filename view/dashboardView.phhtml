@@ -53,6 +53,9 @@
                                 <a href="javascript:void(0)" id='table-reportes' class="menu"><i class="fa fa-fw fa-bar-chart-o"></i> Reportes </a>
                             </li>
                             <li>
+                                <a href="javascript:void(0)" id='historial' class="menu"><i class="fa fa-fw fa-history"  aria-hidden="true"></i>Historial </a>
+                            </li>
+                            <li>
                                 <a href="javascript:void(0)" id='respaldo' class="menu"><i class="fa fa-fw fa-cloud-download" aria-hidden="true"></i> Respaldo de BD </a>
                             </li>
                             <?php } ?>

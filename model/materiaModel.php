@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+require_once('historialModel.php');
 function show_mate(){
   $mysqli = crearConexion();
   $consulta = '
@@ -15,13 +15,13 @@ function show_mate(){
 	case apertura WHEN 0 THEN  "Cerrada"
       WHEN 1 THEN  "Activa"
      END AS apert,
-  case trayecto 
+  case trayecto
       WHEN 1 THEN  "I"
       WHEN 2 THEN  "II"
       WHEN 3 THEN  "III"
       WHEN 4 THEN  "IV"
       END AS tray,
-  case nombre_semestre 
+  case nombre_semestre
       WHEN 1 THEN  "I"
       WHEN 2 THEN  "II"
       WHEN 3 THEN  "III"
@@ -37,6 +37,7 @@ function show_mate(){
   while ($row = $resultado->fetch_array()) {
       $datos[] =$row;
   }
+  post_historial($_SESSION['user_correo'],'333','Materias','Ver registros');
   return $datos;
 }
 ?>

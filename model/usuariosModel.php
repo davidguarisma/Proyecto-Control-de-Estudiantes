@@ -1,4 +1,6 @@
-<?php include('../config/config.php');
+<?php
+ include('../config/config.php');
+ require_once('historialModel.php');
 
     function show_user(){
       $mysqli = crearConexion();
@@ -8,6 +10,7 @@
       while ($row = $resultado->fetch_array()) {
           $datos[] =$row;
       }
+       post_historial($_SESSION['user_correo'],'333','Usuarios','Ver registros');
       return $datos;
     }
     function post_user_new($post_user){
@@ -36,6 +39,7 @@
           }else {
            $mensaje =3;
           }
+    post_historial($_SESSION['user_correo'],"33",'Nuevo usuarios','Registros exitoso');
   echo $mensaje;
 }
 
@@ -74,5 +78,6 @@ function update_user_session($data_post){
     }else{
        $mensaje = 2;
     }
+     post_historial($_SESSION['user_correo'],'44','actuzaliar usuario','Registro actualizado');
     echo $mensaje;
 }

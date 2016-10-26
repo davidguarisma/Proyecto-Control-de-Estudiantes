@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+require_once('historialModel.php');
   function save_Mate($mat,$pnf,$tra,$sem){
     $mysqli = crearConexion();
 
@@ -20,6 +20,7 @@ include('../config/config.php');
     }else{
     	$mateArray = array('status' => $tra);
     }
+    post_historial($_SESSION['user_correo'],'333','Guardar materias','Exitoso');
     	echo json_encode($mateArray);
   }
 ?>

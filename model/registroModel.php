@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+require_once('historialModel.php');
 function registro_user($nombre, $apellido,$cedula,$email,$telefono,$password,$pnf,$trayecto,$semestre ){
     $mysqli = crearConexion();
     $nombre = clear_inputs(limpiarCadena($nombre));
@@ -28,11 +28,14 @@ function registro_user($nombre, $apellido,$cedula,$email,$telefono,$password,$pn
             $_SESSION['user_cedula'] = $cedula;
             $_SESSION['user_correo'] = $email;
             $_SESSION['user_clave'] = md5($password);
+             post_historial($_SESSION['user_correo'],'333','Registro de alumnos','Exitoso');
             $mensaje =1;
         }else{
+           post_historial($_SESSION['user_correo'],'333','Registro de alumnos','Fallo el registro');
            $mensaje = 2;
            }
     }else {
+       post_historial($_SESSION['user_correo'],'333','Registro de alumnos','Usuario registrado');
      $mensaje =3;
     }
     echo $mensaje;

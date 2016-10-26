@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+require_once('historialModel.php');
   function postularte_materia($id){
       $mysqli = crearConexion();
       $consulta = 'INSERT INTO `inscripcion` VALUES (NULL,"'.$_SESSION["id_register"].'","'.$id.'")';
@@ -10,6 +10,7 @@ include('../config/config.php');
      }else{
        $mensaje =  2;
      }
+       post_historial($_SESSION['user_correo'],'333','Vista de Alumnos','Inscripcion de materia');
      echo $mensaje;
   }
 
@@ -23,6 +24,7 @@ include('../config/config.php');
     }else {
      $mensaje =  2;
     }
+     post_historial($_SESSION['user_correo'],'333','Vista de Alumnos','Ver registro');
     echo $mensaje;
   }
  ?>

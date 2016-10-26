@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+require_once('historialModel.php');
   function trash_setMate($id){
     $mysqli = crearConexion();
     $id = clear_inputs(limpiarCadena($id));
@@ -12,6 +12,7 @@ include('../config/config.php');
     }else{
     	$userArray = array('status' => false);
     }
+     post_historial($_SESSION['user_correo'],'333','ELiminar materia','Registro eliminado');
     	echo json_encode($userArray);
   }
 ?>

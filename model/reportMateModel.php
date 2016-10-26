@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+require_once('historialModel.php');
   function mateSelect($pnf,$trayecto,$semestre){
 	$mysqli = crearConexion();
     $consulta = '
@@ -18,6 +18,7 @@ include('../config/config.php');
 
     $num = mysqli_num_rows($resultado);
     $datos['valor'] = $num;
+    post_historial($_SESSION['user_correo'],'333','Reportes','Exitoso');
     	echo json_encode($datos);
 }
 ?>

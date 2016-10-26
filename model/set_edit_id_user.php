@@ -1,6 +1,6 @@
 <?php
 require_once('../config/config.php');
-
+require_once('historialModel.php');
   function edit_setIdUser($id ){
     $mysqli = crearConexion();
     $id = clear_inputs(limpiarCadena($id));
@@ -15,7 +15,7 @@ require_once('../config/config.php');
     $user['cedula'] = $row['cedula'];
     $user['correo'] = $row['correo'];
     $user['tipo_usuario'] = $row['tipo_usuario'];
-
+    post_historial($_SESSION['user_correo'],'333','Editar usuario','Exitoso');
     echo json_encode($user);
   }
 
@@ -49,6 +49,7 @@ require_once('../config/config.php');
       }else{
          $mensaje = 2;
       }
+       post_historial($_SESSION['user_correo'],'333','Eliminar','Eliminar registro de usuario');
       echo $mensaje;
   }
 ?>
