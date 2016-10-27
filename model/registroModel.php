@@ -21,22 +21,25 @@ function registro_user($nombre, $apellido,$cedula,$email,$telefono,$password,$pn
     if ($resultado->num_rows == 0) {
          $query = sprintf("INSERT INTO usuarios VALUES
            (%d,%d,'%s','%s','%s','%s','%s','%s','%s','%s',%d)",
-           NULL,$cedula,$nombre,$apellido,$email,$telefono,$pnf,$semestre,$trayecto,md5($password),1 );
+           NULL,$cedula,$nombre,$apellido,$email,$telefono,$pnf,$trayecto,$semestre,md5($password),1 );
         if ( $mysqli->query($query)) {
             $id = $mysqli->insert_id;
             $_SESSION['id_register'] = $id;
             $_SESSION['user_cedula'] = $cedula;
             $_SESSION['user_correo'] = $email;
             $_SESSION['user_clave'] = md5($password);
-             post_historial($_SESSION['user_correo'],'333','Registro de alumnos','Exitoso');
+            $_SESSION['semestre_user'] = $semestre;
+            $_SESSION['pnf_user'] = $pnf;
+
+             post_historial($email,'333','Registro de alumnos','Exitoso');
             $mensaje =1;
         }else{
-           post_historial($_SESSION['user_correo'],'333','Registro de alumnos','Fallo el registro');
+           post_historial($email,'333','Registro de alumnos','Fallo el registro');
            $mensaje = 2;
            }
     }else {
-       post_historial($_SESSION['user_correo'],'333','Registro de alumnos','Usuario registrado');
-     $mensaje =3;
+       post_historial($email,'333','Registro de alumnos','Usuario registrado');
+       $mensaje =3;
     }
     echo $mensaje;
 }

@@ -7,7 +7,6 @@
     <link rel="shortcut icon" type="image/png" href="images/Che.jpg"/>
     <link rel="stylesheet" type="text/css" href="lib/normalize.css">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="lib/dataTables-css/dataTables.css"> -->
     <link rel="stylesheet" type="text/css" href="lib/dataTables-css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="lib/sweetalert/sweetalert2.min.css">

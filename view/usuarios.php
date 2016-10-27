@@ -104,7 +104,55 @@
                         </select>
                         <span class="input-group-addon"><i class="fa fa-user-secret fa-lg" aria-hidden="true"></i></span>
                     </div>
+                    <br/>
+                    <div class="select_pnf">
+                        <div class="col-xs-12">
+                           <div class="input-group imput-ground_1">
+                             <div class="form-group">
+                             <select name="trayecto_user" id="pnfS"  class="form-control" onchange="setactive('#trayectoS')" >
+                                     <option selected disabled value="">Selecciona PNF: </option>
+                                     <option value="1">PNF en Electricidad</option>
+                                     <option value="2">PNF en Ingeniería de Mantenimiento</option>
+                                     <option value="3">PNF en Mecánica</option>
+                                     <option value="4">PNF en Informática</option>
+                                     <option value="5">PNF en Geociencia</option>
+                                     <option value="6">PNF en Sistemas de Calidad y Ambiente</option>
+                             </select>
+                           </div>
+                         </div>
+                      </div>
+                        <div class="col-xs-12">
+                          <div class="input-group imput-ground_1">
+                           <div class="form-group">
+                             <select name="trayecto_user" id="trayectoS" class="form-control">
+                                 <option selected disabled value="">Seleccione: </option>
+                                 <option value="1">Trayecto I</option>
+                                 <option value="2">Trayecto II</option>
+                                 <option value="3">Trayecto III</option>
+                                 <option value="4">Trayecto IV</option>
+                             </select>
+                         </div>
+                       </div>
+                      </div>
 
+                        <div class="col-xs-12">
+                           <div class="input-group imput-ground_1">
+                             <div class="form-group">
+                             <select name="semestre_user" id="semestreS"  class="form-control" >
+                                 <option selected disabled value="">Seleccione</option>
+                                 <option value="1">Semestre I</option>
+                                 <option value="2">Semestre II</option>
+                                 <option value="3">Semestre III</option>
+                                 <option value="4">Semestre IV</option>
+                                 <option value="5">Semestre V</option>
+                                 <option value="6">Semestre VI</option>
+                                 <option value="7">Semestre VII</option>
+                                 <option value="8">Semestre VIII</option>
+                             </select>
+                           </div>
+                         </div>
+                      </div>
+                    </div>
                     <div class="modal-footer">
                         <div class="col-xs-6">
                             <button type="button" data-dismiss="modal" class="btn btn-danger btn-modal closeM">Cerrar</button>
@@ -225,6 +273,11 @@
                 'id': id
             },
             success: function(data) {
+                if (data.tipo_usuario==1) {
+                  $('.select_pnf').show();
+                }else{
+                  $('.select_pnf').hide();
+                }
                 $("#myModal").modal();
                 $("#id_user").val(data.id);
                 $("#nombre").val(data.nombres);
@@ -232,6 +285,9 @@
                 $("#cedula").val(data.cedula);
                 $("#email").val(data.correo);
                 $("#tipo_usuario").val(data.tipo_usuario);
+                $('#pnfS').val(data.pnf_user);
+                $('#trayectoS').val(data.trayecto_user);
+                $('#semestreS').val(data.semestre_user);
             },
             error: function(data) {
                 console.log(data);

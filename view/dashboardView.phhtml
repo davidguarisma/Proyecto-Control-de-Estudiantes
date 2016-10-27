@@ -74,7 +74,7 @@
                     <div class="container-fluid container-page">
                       <div class="row">
                         <div class="notificacion-registros padding-bottom">
-                        <h2 class="text-center">Bienvenido</h2>
+                            <h2 class="text-center">Bienvenido</h2>
                         </div>
                       </div>
                       <?php  if ($_SESSION['tipo_user'] ==="administrador") { ?>
@@ -84,7 +84,7 @@
                         ?>
                               <div class="row padding-top ">
                             <?php  if(empty($row)) { ?>
-                              
+
                               <div class="col-md-4 col-sm-6 col-xs-6">
                                   <div class="panel panel-back noti-box">
                                       <div class="text-box">

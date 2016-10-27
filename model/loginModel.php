@@ -10,14 +10,14 @@ function login_user($usuario,$password ){
 
     $mensaje = array();
 
-      $consulta = 'SELECT id_user,cedula,correo,clave,semestre_user,pnf_user FROM usuarios WHERE
+      $consulta = 'SELECT id_user,cedula,correo,semestre_user,pnf_user,clave FROM usuarios WHERE
         cedula="'.$usuario.'" AND clave ="'.md5($password).'"  OR correo="'.$usuario.'" AND clave ="'.md5($password).'" LIMIT 1';
       $resultado = $mysqli->query($consulta);
       $row = $resultado->fetch_array();
 
       if ($resultado->num_rows == 0) {
-           post_historial($_SESSION['user_correo'],'333','Login','Logearse fallido');
-          $mensaje =1;
+           $mensaje =1;
+           post_historial($usuario,'333','Login','Logearse fallido');
       }else {
         $_SESSION['id_register'] = $row['id_user'];
         $_SESSION['user_cedula'] = $row['cedula'];
@@ -25,8 +25,8 @@ function login_user($usuario,$password ){
         $_SESSION['user_clave'] = $row['clave'];
         $_SESSION['semestre_user'] = $row['semestre_user'];
         $_SESSION['pnf_user'] = $row['pnf_user'];
-        post_historial($_SESSION['user_correo'],'333','Login','Logearse exitoso');
        $mensaje =  2;
+       post_historial($usuario,'333','Login','Logearse exitoso');
       }
     echo $mensaje;
   }
