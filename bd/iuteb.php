@@ -16,10 +16,6 @@ $mysqli->query("CREATE TABLE `usuarios` (
   `tipo_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;");
 
-$mysqli->query("INSERT INTO `usuarios`(`id_user`, `cedula`, `nombres`, `apellidos`,
-   `correo`, `telefono`, `pnf_user`, `trayecto_user`, `semestre_user`, `clave`,
-   `tipo_usuario`) VALUES (NULL,1234567,'Admin','admin','admin@gmail.com',0, 0, 0, 0,'fcea920f7412b5da7be0cf42b8c93759',2);");
-
 $mysqli->query("CREATE TABLE `historial` (
   `id_historial` int(11) NOT NULL,
   `user` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,

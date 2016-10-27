@@ -11,6 +11,10 @@
         if(is_file('bd/iuteb.php')) {
           require_once('bd/iuteb.php');
         }
+         $mysqli->query("INSERT INTO `usuarios`(`id_user`, `cedula`, `nombres`, `apellidos`,
+           `correo`, `telefono`, `pnf_user`, `trayecto_user`, `semestre_user`, `clave`,
+           `tipo_usuario`) VALUES (NULL,1234567,'Admin','admin','admin@gmail.com',0, 0, 0, 0,'fcea920f7412b5da7be0cf42b8c93759',2);");
+
         date_default_timezone_set("America/Caracas");
         date_default_timezone_get();
     }else{
