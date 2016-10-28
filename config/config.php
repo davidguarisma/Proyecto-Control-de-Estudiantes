@@ -1,10 +1,10 @@
- <?php
+<?php
   function crearConexion(){
     if(!isset($_SESSION)) {
       session_start();
       $_POST = array();
     }
-    $mysqli = new mysqli("localhost", "root", "");
+    $mysqli = new mysqli("localhost", "root", "admin");
     if(!$mysqli->connect_error){
         $mysqli->query('CREATE DATABASE IF NOT EXISTS iuteb');
         $mysqli->select_db("iuteb");

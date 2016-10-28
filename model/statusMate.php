@@ -13,3 +13,11 @@
 
     return $data;
   }
+function count_register(){
+    $mysqli = crearConexion();
+    $consulta = 'SELECT  COUNT(*) as contador
+   FROM `inscripcion` WHERE `user_id` = "'.$_SESSION["id_register"].'" GROUP BY user_id';
+  $resultado = $mysqli->query($consulta);
+    $row = $resultado->fetch_array();
+    return $row['contador'];
+}

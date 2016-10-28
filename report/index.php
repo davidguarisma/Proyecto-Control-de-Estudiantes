@@ -86,8 +86,7 @@ switch ($tr) {
 
 	$mysqli = crearConexion();
 
-$consultaM = '
-		SELECT materia, semestre_id FROM materias WHERE id_materias = "'.$id_curso.'" ';
+$consultaM = 'SELECT materia, semestre_id FROM materias WHERE id_materias = "'.$id_curso.'" ';
 
 	$resultadoM = $mysqli->query($consultaM);
 
@@ -98,10 +97,8 @@ $consultaM = '
     		$idSemestre = $rowM['semestre_id'];
 	}
 
-
-    $consulta = '
-		SELECT nombres, apellidos, cedula FROM usuarios INNER JOIN inscripcion on id_semestre = "'.$idSemestre.'"
-			GROUP BY id_user';
+    $consulta = 'SELECT pnf_user, nombres, apellidos, cedula FROM usuarios INNER JOIN inscripcion on id_semestre = "'.$idSemestre.'"
+		WHERE  pnf_user="'.$pnfs.'" and user_id=id_user 	GROUP BY id_user';
 
 	$resultado = $mysqli->query($consulta);
 

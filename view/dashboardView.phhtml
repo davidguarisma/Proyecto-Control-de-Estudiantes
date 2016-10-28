@@ -178,12 +178,15 @@
                                                 <?php
                                                 require_once("model/statusMate.php");
                                                 $row  = status_mate($_SESSION['id_register'], $item['id_semestre']);
+
                                                 if($row == 1){?>
                                                   <a href="javascript:void(0)" ><i class="fa fa-check" aria-hidden="true"></i></a>
                                                 <?php }elseif($row == 0){ ?>
+                                                  <?php  if (count_register()!=2) { ?>
                                                   <a href="javascript:void(0)" class="btn_activa" id="<?php  echo $item['id_semestre']; ?>"><i class="fa fa-check-square" aria-hidden="true"></i></a>
-                                                <?php }?>
-
+                                                <?php }else{?>
+                                                  <a href="javascript:void(0)" ><i class="fa fa-ban" aria-hidden="true"></i></a>
+                                                <?php } } ?>
                                               </td>
                                             </tr>
                                             <?php  } ?>

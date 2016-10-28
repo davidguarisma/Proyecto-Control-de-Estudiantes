@@ -222,7 +222,8 @@ function guardarN() {
                 type: 'success'
             }).then(
                 function(result) {
-                  listar();
+                  // listar();
+                $(".container-page").load('../app/view/data-materias.php');
                 })
           }else{
             swal({
